@@ -1,0 +1,4 @@
+.{
+    .name = "libduckdb",
+    .version = "0.8.1",
+}
