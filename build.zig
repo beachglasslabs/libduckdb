@@ -25,7 +25,8 @@ pub fn build(b: *std.Build) void {
     lib.addLibraryPath("lib");
     lib.linkSystemLibraryName("duckdb");
 
-    b.installFile("include/duckdb.h", "include/duckdb.h");
+    lib.installHeader("include/duckdb.h", "duckdb.h");
+
     //b.installLibFile("lib/libduckdb.so", "libduckdb.so");
 
     // This declares intent for the library to be installed into the standard
