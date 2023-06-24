@@ -29,11 +29,13 @@ pub fn build(b: *std.Build) !void {
     lib.addLibraryPath("lib");
     lib.linkSystemLibraryName("duckdb");
 
+    // HACK XXX hope zig fixes it
+    lib.installHeader("lib/libduckdb.so", "../lib/libduckdb.so");
     lib.installHeader("include/duckdb.h", "duckdb.h");
 
     // b.installLibFile("lib/libduckdb.so", "libduckdb.so");
-    const lib_install_step = b.addInstallLibFile(.{ .path = "lib/libduckdb.so" }, "libduckdb.so");
-    b.getInstallStep().dependOn(&lib_install_step.step);
+    // const lib_install_step = b.addInstallLibFile(.{ .path = "lib/libduckdb.so" }, "libduckdb.so");
+    // b.getInstallStep().dependOn(&lib_install_step.step);
 
     // This declares intent for the library to be installed into the standard
     // location when the user invokes the "install" step (the default step when
