@@ -27,7 +27,9 @@ pub fn build(b: *std.Build) void {
 
     lib.installHeader("include/duckdb.h", "duckdb.h");
 
-    b.installLibFile("lib/libduckdb.so", "libduckdb.so");
+    // b.installLibFile("lib/libduckdb.so", "libduckdb.so");
+    const lib_install_step = b.addInstallLibFile(.{ .path = "lib/libduckdb.so" }, "libduckdb.so");
+    b.getInstallStep().dependOn(&lib_install_step.step);
 
     // This declares intent for the library to be installed into the standard
     // location when the user invokes the "install" step (the default step when
