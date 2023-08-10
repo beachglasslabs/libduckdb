@@ -25,8 +25,8 @@ pub fn build(b: *std.Build) !void {
         .optimize = optimize,
     });
 
-    lib.addIncludePath("include");
-    lib.addLibraryPath("lib");
+    lib.addIncludePath(.{ .path = "include" });
+    lib.addLibraryPath(.{ .path = "lib" });
     lib.linkSystemLibraryName("duckdb");
 
     // HACK XXX hope zig fixes it
