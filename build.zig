@@ -15,7 +15,7 @@ pub fn build(b: *std.Build) !void {
     // set a preferred release mode, allowing the user to decide how to optimize.
     const optimize = b.standardOptimizeOption(.{});
 
-    var libduckdb_module = b.createModule(.{ .source_file = .{ .path = "lib/libduckdb.so" } });
+    var libduckdb_module = b.createModule(.{ .source_file = .{ .path = "lib/libduckdb.a" } });
 
     try b.modules.put(b.dupe("libduckdb"), libduckdb_module);
 
