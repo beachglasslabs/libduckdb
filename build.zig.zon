@@ -1,4 +1,5 @@
 .{
     .name = "libduckdb",
     .version = "0.9.1",
+    .paths = .{"."},
 }
